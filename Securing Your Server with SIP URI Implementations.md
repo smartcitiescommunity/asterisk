@@ -15,8 +15,11 @@ There are two important security steps once you have enabled anonymous SIP URI c
 2. Run the following commands substituting your actual FQDN in the first line to lock down Asterisk to only your FQDN for anonymous SIP connections:
 
 sed -i '/\[general\]/a ;domain=k43X20.mycompany.com' /etc/asterisk/sip.conf
+
 sed -i '0,/;domain/s/;domain/domain/' /etc/asterisk/sip.conf
+
 sed -i '0,/;allowtransfer=no/s/;allowtransfer=no/allowtransfer=no/' /etc/asterisk/sip.conf
+
 sed -i '0,/; allowexternaldomains=no/s/; allowexternaldomains=no/allowexternaldomains=no/' /etc/asterisk/sip.conf
 
 3. Restart your firewall: iptables-restart
